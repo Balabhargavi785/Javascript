@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram Login</title>
+    <link rel="stylesheet" href="task13.css">
+    <script src="task13.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h2>Login Instagram</h2>
+        <form id="login-form">
+            <div class="login-options">
+                <input type="radio" id="email-login" name="login-type" checked>
+                <label for="email-login">Email</label>
+                <input type="radio" id="username-login" name="login-type">
+                <label for="username-login">Username</label>
+                <input type="radio" id="phone-login" name="login-type">
+                <label for="phone-login">Phone Number</label>
+            </div>
+            <div class="form-group">
+                <label for="email-username-phone">Email/Username/Phone Number:</label>
+                <input type="text" id="email-username-phone" name="email-username-phone">
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password">
+            </div>
+            <button type="submit">Login</button>
+        </form>
+        <div id="error-message"></div>
+    </div>
+</body>
+</html>

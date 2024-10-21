@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Magnifier</title>
+    <style>
+        .container {
+    position: relative;
+}
+
+#image {
+    width: 300px;
+    height: 200px;
+    border-radius: 10px;
+}
+
+#magnifier {
+    position: absolute;
+    width: 150px;
+    height: 100px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    background-size: 100% 100%;
+    display: none;
+    z-index: 1;
+}
+    </style>
+    
+</head>
+<body>
+    <div class="container">
+        <img id="image" src="image.png" alt="Image">
+        <div id="magnifier" style="display: none;"></div>
+    </div>
+    <script>
+        const image = document.getElementById('image');
+const magnifier = document.getElementById('magnifier');
+
+image.addEventListener('mousemove', (e) => {
+    const x = e.clientX - image.offsetLeft;
+    const y = e.clientY - image.offsetTop;
+    const width = image.offsetWidth;
+    const height = image.offsetHeight;
+
+    magnifier.style.left = `${x + 10}px`;
+    magnifier.style.top = `${y + 10}px`;
+    magnifier.style.backgroundImage = `url(${image.src})`;
+    magnifier.style.backgroundPosition = `${(x / width) * 100}% ${(y / height) * 100}%`;
+    magnifier.style.display = 'block';
+});
+
+image.addEventListener('mouseout', () => {
+    magnifier.style.display = 'none';
+});
+</script>
+</body>
+</html>
